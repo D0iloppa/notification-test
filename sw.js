@@ -22,7 +22,8 @@ self.addEventListener('push' , function(e) {
     }
 
     e.waitUntil(
-        self.registration.showNotificaion('Hello world!',options)
+        console.log('test')
+        //self.registration.showNotificaion('Hello world!',options)
     );
     
 });
