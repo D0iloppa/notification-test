@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="subscribe()">Subscribe</button>
+
+    <script>
+        // onload
+        addEventListener('load' , async() => {
+            // service worker 등록
+            let sw = navigator.serviceWorker.register('./sw.js');
+            console.log(sw);
+        })
+
+        async function subscribe(){
+            let sw = await navigator.serviceWorker.ready;
+            let push = await sw.pushManager.subscribe({
+                userVisibleOnly:true,
+                // vapid public key
+                applicationServerKey:'BFZMlmRstkzDw-FHUR_8OwuGzX-0v6hhy1ykdFstaiUJJG2j-Z-WJrOm-vYTgk0YoYVRvXZg6yi7KY5Hs2DGMc4'
+            });
+
+            console.log(JSON.stringify(push));
+        }
+
+    </script>
+</body>
+</html>
