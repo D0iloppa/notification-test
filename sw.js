@@ -22,7 +22,7 @@ self.addEventListener('push' , function(e) {
     }
 
     e.waitUntil(
-        self.registration.sendNotification('Hello world!',options)
+        self.registration.showNotificaion('Hello world!',options)
     );
     
 });
