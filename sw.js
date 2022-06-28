@@ -1,4 +1,4 @@
-self.addEventListener('push' , (e) => {
+self.addEventListener('push' , function(e) {
     var options = {
         body : "This notification was generated from a Doil's server ",
         icon : "images/example.png",

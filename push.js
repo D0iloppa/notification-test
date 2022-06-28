@@ -19,5 +19,6 @@ let sub = {
         }
 }
 
+let sub2 = {"endpoint":"https://fcm.googleapis.com/fcm/send/diBDLGU-No8:APA91bECrD5MQWGizi_0mBujmgZuc-iyPOA1Eudht-fdwDhaq3MXgRvyzDdECv7fc7PCkKRLgDVDi2lSq_phzjdHRII3kbBLprDR72TwLRUKDG0q6Yuz-2c14_Oj2yuqjOQpwdVvLjm-","expirationTime":null,"keys":{"p256dh":"BM6TiSMRaan6ZZzx54t-Pqx1VdYwfnlxqb-QKSzYzHteKShVPX_OANxxVUdoP_xrPdXNbVl0zT__ssMUvxk3ckE","auth":"nIF_O5vRpEx5xFXLvCCizw"}};
 
-push.sendNotification(sub,'test message');
+push.sendNotification(sub2,'test message');
