@@ -5,29 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    <button onclick="subscribe()">Subscribe</button>
-
+    <script type="text/javascript" src="js/subscribe.js"></script>
     <script>
-        // onload
-        addEventListener('load' , async() => {
+        var serverKey;
+
+        const promise = fetch("/getServerKey.do")
+        .then(response => response.json())
+        .then(json => {
+            serverKey = json;
+            console.log(json);
+            /*
+            // server키를 가져온 이후, onload 이벤트(service-worker 등록) 작성
+
+            // onload
+            addEventListener('load' , async() => {
             // service worker 등록
-            let sw = navigator.serviceWorker.register('./sw.js');
-            console.log(sw);
-        })
-
-        async function subscribe(){
-            let sw = await navigator.serviceWorker.ready;
-            let push = await sw.pushManager.subscribe({
-                userVisibleOnly:true,
-                // vapid public key
-                applicationServerKey:'BFZMlmRstkzDw-FHUR_8OwuGzX-0v6hhy1ykdFstaiUJJG2j-Z-WJrOm-vYTgk0YoYVRvXZg6yi7KY5Hs2DGMc4'
+                let sw = navigator.serviceWorker.register('./service-worker/sw.js');
+                console.log(sw);
             });
+            */
+        });
 
-            console.log(JSON.stringify(push));
-        }
 
     </script>
+</head>
+<body>
+    <div class="meta-info" style="display:flex;">
+        <span>Public Key : </span>
+        <span id="receivedPubKey"></span>
+    </div>
+    <hr>
+    <button id="subscribe_Btn">Subscribe</button>
+    <script src="js/client.js"></script>
 </body>
 </html>
